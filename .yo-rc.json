@@ -2,7 +2,7 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "com.open.coinoffline",
-      "nativeLanguage": "en"
+      "nativeLanguage": "zh-cn"
     },
     "jhipsterVersion": "4.10.2",
     "baseName": "coinoffline",
@@ -33,10 +33,10 @@
     ],
     "jhiPrefix": "jhi",
     "enableTranslation": true,
-    "nativeLanguage": "en",
+    "nativeLanguage": "zh-cn",
     "languages": [
-      "en",
-      "zh-cn"
+      "zh-cn",
+      "en"
     ]
   }
 }
