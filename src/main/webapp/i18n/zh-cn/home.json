@@ -1,7 +1,7 @@
 {
     "home": {
-        "title": "欢迎, Java Hipster!",
-        "subtitle": "这里是首页",
+        "title": "欢迎, 来到黑暗世界!",
+        "subtitle": "这里是黑暗世界的入口",
         "logged": {
             "message": "您目前是以 \"{{username}}\" 账号登录."
         },
