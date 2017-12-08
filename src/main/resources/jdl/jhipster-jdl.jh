@@ -1,0 +1,76 @@
+/*类别*/
+entity Category {
+    description String required,
+    sortOrder Integer,
+    dateAdded LocalDate,
+    dateModified LocalDate,
+    status CategoryStatus
+}
+
+/*分页*/
+paginate Category with pagination
+service Category with serviceClass
+
+/*类别状态*/
+enum CategoryStatus {
+    AVAILABLE, RESTRICTED, DISABLED
+}
+
+relationship ManyToOne {
+	Category{parent} to Category
+}
+
+/*商品*/
+entity Product {
+    title String required,
+    keywords String,
+    description String,
+    rating Integer,
+    dateAdded LocalDate,
+    dateModified LocalDate
+}
+
+paginate Product with pagination
+
+relationship ManyToMany {
+	Category{product(title)} to Product{category}
+}
+
+/*客户*/
+entity Customer {
+	firstName String,
+    lastName String,
+    email String,
+    telephone String
+}
+
+paginate Customer with pagination
+paginate Address with pager
+paginate Product with infinite-scroll
+
+/*地址*/
+entity Address {
+    address1 String,
+    address2 String,
+    city String,
+    postcode String required maxlength(10),
+    country String required maxlength(2)
+}
+
+relationship OneToMany {
+    Customer{address} to Address{customer}
+}
+
+/*订单*/
+entity Wishlist {
+	title String required,
+    restricted Boolean
+}
+
+relationship OneToMany {
+    Customer{whislist(title)} to Wishlist{customer}
+}
+
+relationship OneToMany {
+    Wishlist{product(title)} to Product{wishlist}
+}

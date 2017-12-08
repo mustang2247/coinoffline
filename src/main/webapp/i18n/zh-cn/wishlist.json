@@ -1,0 +1,24 @@
+{
+    "coinofflineApp": {
+        "wishlist" : {
+            "home": {
+                "title": "Wishlists",
+                "createLabel": "创建新 Wishlist",
+                "createOrEditLabel": "创建或编辑 Wishlist"
+            },
+            "created": "Wishlist {{ param }} 创建成功",
+            "updated": "Wishlist {{ param }} 更新成功",
+            "deleted": "Wishlist {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Wishlist {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Wishlist"
+            },
+            "title": "Title",
+            "restricted": "Restricted",
+            "product": "Product",
+            "customer": "Customer"
+        }
+    }
+}
