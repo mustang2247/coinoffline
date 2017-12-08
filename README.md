@@ -1,5 +1,5 @@
 # coinoffline
-This application was generated using JHipster 4.10.2, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.10.2](http://www.jhipster.tech/documentation-archive/v4.10.2).
+This application was generated using JHipster 4.11.1, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.11.1](http://www.jhipster.tech/documentation-archive/v4.11.1).
 
 ## Development
 
@@ -61,7 +61,6 @@ To benefit from TypeScript type definitions from [DefinitelyTyped][] repository 
     yarn add --dev --exact @types/leaflet
 
 Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
-
 Edit [src/main/webapp/app/vendor.ts](src/main/webapp/app/vendor.ts) file:
 ~~~
 import 'leaflet/dist/leaflet.js';
@@ -71,7 +70,6 @@ Edit [src/main/webapp/content/css/vendor.css](src/main/webapp/content/css/vendor
 ~~~
 @import '~leaflet/dist/leaflet.css';
 ~~~
-
 Note: there are still few other things remaining to do for Leaflet that we won't detail here.
 
 For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
@@ -118,13 +116,7 @@ Unit tests are run by [Karma][] and written with [Jasmine][]. They're located in
 
     yarn test
 
-UI end-to-end tests are powered by [Protractor][], which is built on top of WebDriverJS. They're located in [src/test/javascript/e2e](src/test/javascript/e2e)
-and can be run by starting Spring Boot in one terminal (`./mvnw spring-boot:run`) and running the tests (`yarn run e2e`) in a second one.
-### Other tests
 
-Performance tests are run by [Gatling][] and written in Scala. They're located in [src/test/gatling](src/test/gatling) and can be run with:
-
-    ./mvnw gatling:execute
 
 For more information, refer to the [Running tests page][].
 
@@ -142,7 +134,7 @@ To stop it and remove the container, run:
 You can also fully dockerize your application and all the services that it depends on.
 To achieve this, first build a docker image of your app by running:
 
-    ./mvnw package -Pprod dockerfile:build
+    ./mvnw verify -Pprod dockerfile:build
 
 Then run:
 
@@ -155,15 +147,15 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
 [JHipster Homepage and latest documentation]: http://www.jhipster.tech
-[JHipster 4.10.2 archive]: http://www.jhipster.tech/documentation-archive/v4.10.2
+[JHipster 4.11.1 archive]: http://www.jhipster.tech/documentation-archive/v4.11.1
 
-[Using JHipster in development]: http://www.jhipster.tech/documentation-archive/v4.10.2/development/
-[Using Docker and Docker-Compose]: http://www.jhipster.tech/documentation-archive/v4.10.2/docker-compose
-[Using JHipster in production]: http://www.jhipster.tech/documentation-archive/v4.10.2/production/
-[Running tests page]: http://www.jhipster.tech/documentation-archive/v4.10.2/running-tests/
-[Setting up Continuous Integration]: http://www.jhipster.tech/documentation-archive/v4.10.2/setting-up-ci/
+[Using JHipster in development]: http://www.jhipster.tech/documentation-archive/v4.11.1/development/
+[Using Docker and Docker-Compose]: http://www.jhipster.tech/documentation-archive/v4.11.1/docker-compose
+[Using JHipster in production]: http://www.jhipster.tech/documentation-archive/v4.11.1/production/
+[Running tests page]: http://www.jhipster.tech/documentation-archive/v4.11.1/running-tests/
+[Setting up Continuous Integration]: http://www.jhipster.tech/documentation-archive/v4.11.1/setting-up-ci/
 
-[Gatling]: http://gatling.io/
+
 [Node.js]: https://nodejs.org/
 [Yarn]: https://yarnpkg.org/
 [Webpack]: https://webpack.github.io/

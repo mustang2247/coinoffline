@@ -23,7 +23,7 @@ import {
         Title,
         {
             provide: LOCALE_ID,
-            useValue: 'en'
+            useValue: 'zh-cn'
         },
     ],
     exports: [

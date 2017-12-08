@@ -5,11 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ng2-webstorage';
 
 import { CoinofflineSharedModule, UserRouteAccessService } from './shared';
+import { CoinofflineAppRoutingModule} from './app-routing.module';
 import { CoinofflineHomeModule } from './home/home.module';
 import { CoinofflineAdminModule } from './admin/admin.module';
 import { CoinofflineAccountModule } from './account/account.module';
 import { CoinofflineEntityModule } from './entities/entity.module';
-
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
@@ -17,7 +17,6 @@ import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
 import {
     JhiMainComponent,
-    LayoutRoutingModule,
     NavbarComponent,
     FooterComponent,
     ProfileService,
@@ -29,7 +28,7 @@ import {
 @NgModule({
     imports: [
         BrowserModule,
-        LayoutRoutingModule,
+        CoinofflineAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
         CoinofflineSharedModule,
         CoinofflineHomeModule,

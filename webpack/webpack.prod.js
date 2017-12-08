@@ -4,13 +4,13 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const Visualizer = require('webpack-visualizer-plugin');
 const ngcWebpack = require('ngc-webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 
 const utils = require('./utils.js');
 const commonConfig = require('./webpack.common.js');
 
 const ENV = 'production';
-const extractSASS = new ExtractTextPlugin(`[name]-sass.[hash].css`);
 const extractCSS = new ExtractTextPlugin(`[name].[hash].css`);
 
 module.exports = webpackMerge(commonConfig({ env: ENV }), {
@@ -19,7 +19,7 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
     // devtool: 'source-map',
     entry: {
         polyfills: './src/main/webapp/app/polyfills',
-        global: './src/main/webapp/content/scss/global.scss',
+        global: './src/main/webapp/content/css/global.css',
         main: './src/main/webapp/app/app.main-aot'
     },
     output: {
@@ -55,18 +55,6 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             exclude: /(polyfills\.ts|vendor\.ts|Reflect\.ts)/
         },
         {
-            test: /\.scss$/,
-            loaders: ['to-string-loader', 'css-loader', 'sass-loader'],
-            exclude: /(vendor\.scss|global\.scss)/
-        },
-        {
-            test: /(vendor\.scss|global\.scss)/,
-            use: extractSASS.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'postcss-loader', 'sass-loader']
-            })
-        },
-        {
             test: /\.css$/,
             loaders: ['to-string-loader', 'css-loader'],
             exclude: /(vendor\.css|global\.css)/
@@ -80,7 +68,6 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         }]
     },
     plugins: [
-        extractSASS,
         extractCSS,
         new Visualizer({
             // Webpack statistics in target folder
@@ -120,6 +107,16 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false
-        })
+        }),
+        new WorkboxPlugin({
+          // to cache all under target/www
+          globDirectory: utils.root('target/www'),
+          // find these files and cache them
+          globPatterns: ['**/*.{html,bundle.js,css,png,svg,jpg,gif,json}'],
+          // create service worker at the target/www
+          swDest: path.resolve(utils.root('target/www'), 'sw.js'),
+          clientsClaim: true,
+          skipWaiting: true,
+        }),
     ]
 });
